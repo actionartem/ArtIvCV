@@ -44,7 +44,13 @@
     .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .avatar{display:none}
     .avatar-frame{display:none}
-    .avatar-photo{width:260px;height:260px;border-radius:18px;border:2px solid var(--border);background:var(--bg-soft);box-shadow:var(--shadow);display:block;object-fit:cover;object-position:center;margin-left:auto}
+    .avatar-photo{width:260px;height:260px;border-radius:18px;border:2px solid var(--border);background:var(--bg-soft);box-shadow:var(--shadow);display:block;object-fit:cover;object-position:center;margin-left:auto;cursor:zoom-in;transition:transform .2s ease}
+    .avatar-photo:hover{transform:scale(1.02)}
+    .avatar-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(6,7,10,.78);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:999}
+    .avatar-modal.open{opacity:1;pointer-events:auto}
+    .avatar-modal img{max-width:min(92vw,720px);max-height:min(92vh,680px);width:auto;height:auto;border-radius:24px;border:2px solid var(--border);box-shadow:0 24px 60px rgba(0,0,0,.45);cursor:zoom-out}
+    .avatar-modal:focus-visible{outline:2px solid var(--accent)}
+    body.modal-open{overflow:hidden}
     @media (max-width:860px){ .avatar-frame{margin:12px auto 0} }
     /* Выравнивание карточки доп.инфо по нижней линии с блоком "Обо мне" */
     .hero > div{display:flex;flex-direction:column;min-height:100%}
@@ -338,6 +344,47 @@
       <div class="container">© <span id="year"></span> Иванов Артем Антонович. </div>
     </footer>
   </main>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <div class="avatar-modal" id="avatarModal" aria-hidden="true" role="dialog" aria-label="Фотография Артёма" tabindex="-1">
+    <img src="avatar.jpg" alt="Фото Артёма в полном размере">
+  </div>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    (function(){
+      const avatar=document.querySelector('.avatar-photo');
+      const modal=document.getElementById('avatarModal');
+      if(!avatar||!modal)return;
+      if(avatar.complete&&avatar.naturalWidth===0){
+        modal.remove();
+        return;
+      }
+      const setState=(open)=>{
+        modal.classList.toggle('open',open);
+        modal.setAttribute('aria-hidden',String(!open));
+        document.body.classList.toggle('modal-open',open);
+        avatar.setAttribute('aria-expanded',String(open));
+        if(open){
+          modal.focus();
+        }
+      };
+      const toggle=()=>{
+        setState(!modal.classList.contains('open'));
+      };
+      avatar.addEventListener('click',toggle);
+      avatar.addEventListener('keydown',(event)=>{
+        if(event.key==='Enter'||event.key===' '){
+          event.preventDefault();
+          toggle();
+        }
+      });
+      avatar.setAttribute('tabindex','0');
+      avatar.setAttribute('role','button');
+      modal.addEventListener('click',()=>setState(false));
+      modal.addEventListener('keydown',(event)=>{
+        if(event.key==='Escape'){
+          setState(false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
