@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Иванов Артем Антонович — Визитка · Резюме</title>
+  <meta name="description" content="Иванов Артем Антонович — IT Project Manager / Руководитель IT проектов. Персональный сайт‑визитка: обо мне, опыт, навыки, контакты.">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    :root { --bg:#0b0c10; --bg-soft:#111217; --text:#e7e9ee; --muted:#a2a7b3; --accent:#00C7B1; --card:#14161d; --border:#242736; --shadow:0 10px 30px rgba(0,0,0,.25); }
+    :root.light { --bg:#ffffff; --bg-soft:#f6f7fb; --text:#1b1e24; --muted:#596072; --accent:#00C7B1; --card:#ffffff; --border:#e7e9f0; --shadow:0 12px 28px rgba(10,10,10,.06); }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1100px,92vw);margin:0 auto}
+    /* Навигация */
+    header{position:sticky;top:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .nav-left{display:flex;align-items:center;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:clamp(20px,2.4vw,26px)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 6px color-mix(in oklab, var(--accent) 22%, transparent)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    /* Контакты в шапке */
+    .top-contacts{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .top-contacts a{display:inline-flex;align-items:center;gap:8px;color:var(--text);opacity:.95;border:1px solid var(--border);background:var(--card);padding:8px 12px;border-radius:999px}
+    .top-contacts a:hover{transform:translateY(-1px);text-decoration:none}
+    .icon{width:16px;height:16px;display:inline-block}
+    .icon svg{width:16px;height:16px;display:block;fill:currentColor}
+    .top-contacts .tg{color:var(--accent)}
+    .top-contacts .mail{color:#6B8AE6}
+    .top-contacts .tel{color:#84C087}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:10px 14px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);color:var(--text)}
+    .btn:hover{transform:translateY(-1px);transition:.15s ease;text-decoration:none}
+    .btn-ghost{background:transparent;box-shadow:none}
+    .btn-accent{background:var(--accent);color:#041412;border-color:color-mix(in oklab, var(--accent) 70%, black 20%)}
+    /* Герой */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:40px 0 12px;align-items:stretch;grid-auto-rows:1fr}
+    .pill{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:20px 22px;box-shadow:var(--shadow)}
+    .title{font-size:clamp(30px,3.2vw,42px);line-height:1.15;margin:0 0 8px}
+    .role{display:inline-block;margin:8px 0 0;border-radius:12px;border:1px dashed var(--border);background:var(--bg-soft);padding:8px 12px;font-size:clamp(16px,1.9vw,20px);color:#5A7BD8;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .avatar{display:none}
+    .avatar-frame{display:none}
+    .avatar-photo{width:260px;height:260px;border-radius:18px;border:2px solid var(--border);background:var(--bg-soft);box-shadow:var(--shadow);display:block;object-fit:cover;object-position:center;margin-left:auto}
+    @media (max-width:860px){ .avatar-frame{margin:12px auto 0} }
+    /* Выравнивание карточки доп.инфо по нижней линии с блоком "Обо мне" */
+    .hero > div{display:flex;flex-direction:column;min-height:100%}
+    .hero .contact-card{margin-top:auto}
+    /* О себе */
+    .about{margin:18px 0 8px}
+    .about .pill{border-radius:24px}
+    .about h2{margin:0 0 8px;font-size:22px}
+    /* Опыт */
+    .exp{padding:18px 0}
+    .exp h2{font-size:22px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline}
+    .exp h2 .exp-total{color:var(--muted);font-weight:500;opacity:.8;font-size:16px} 
+    .exp-list{display:grid;gap:14px}
+    .exp-row{display:grid;grid-template-columns:80px 1fr;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
+    .exp-left{padding:16px;border-right:1px dashed var(--border);display:flex;align-items:center;justify-content:center}
+    .exp-logo{width:48px;height:48px;border-radius:12px;background:var(--bg-soft);border:1px solid var(--border)}
+    .exp-right{padding:16px}
+    .exp-head{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
+    .exp-title{margin:0;font-size:18px}
+    .exp-meta{color:var(--muted);font-size:14px}
+    .exp-btn{justify-self:end}
+    .exp-details{max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .exp-details.open{max-height:1200px}
+    .exp-details-inner{padding-top:10px;color:var(--muted)}
+    /* Навыки */
+    .skills{padding:10px 0 18px}
+    .skills h2{font-size:22px;margin:4px 0 10px}
+    .skill-block{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:22px;display:flex;flex-wrap:wrap;gap:20px}
+    .skills-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
+    .chips{display:flex;flex-wrap:wrap;gap:16px}
+    /* Расширенные зазоры для чипов навыков */
+    .skills .chips{column-gap:24px;row-gap:24px}
+    .chip{padding:9px 12px;border-radius:12px;border:1px dashed var(--border);background:var(--bg-soft);font-size:13px;line-height:1.3;white-space:nowrap;display:inline-flex;align-items:center;margin:0}
+    /* Контакты/подвал */
+    .contacts{padding:12px 0 18px}
+    .contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+    footer{color:var(--muted);padding:18px 0 40px;font-size:14px;border-top:1px solid var(--border)}
+    @media (max-width:860px){ .hero{grid-template-columns:1fr}.avatar{margin:0 auto} .skills-grid{grid-template-columns:1fr} }
+    @media print{header,.btn,.exp-btn{display:none!important} body{background:#fff;color:#000} .pill,.contact-card,.skill-block,.exp-row{box-shadow:none;border-color:#bbb} a{color:#000;text-decoration:none}}
+  </style>
+  <script>
+    (function(){const saved=localStorage.getItem('theme');const mq=window.matchMedia('(prefers-color-scheme: light)').matches; if(saved==='light'||(!saved&&mq)) document.documentElement.classList.add('light');})();
+    function toggleTheme(){const isLight=document.documentElement.classList.toggle('light'); localStorage.setItem('theme', isLight?'light':'dark');}
+    function toggleExp(id){const el=document.getElementById(id); const panel=el.querySelector('.exp-details'); panel.classList.toggle('open');}
+    function downloadPDF(){window.print();}
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <div class="brand"><span class="dot"></span><a href="#">Иванов Артем Антонович</a></div>
+        <div class="top-contacts" role="navigation" aria-label="Контакты в шапке">
+          <a class="tg" href="https://t.me/artivtw" target="_blank" rel="noreferrer">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9.04 15.31 8.8 19.1c.4 0 .58-.17.79-.38l1.9-1.82 3.94 2.9c.72.4 1.24.19 1.44-.66l2.62-12.34c.24-1.1-.42-1.53-1.12-1.26L3.8 9.52c-1.07.42-1.05 1.02-.18 1.29l4.5 1.4 10.44-6.57c.49-.3.93-.14.56.16L9.04 15.31z"/></svg>
+            </span>
+            <span>@artivtw</span>
+          </a>
+          <a class="mail" href="mailto:prmgartiv@gmail.com">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+            </span>
+            <span>prmgartiv@gmail.com</span>
+          </a>
+          <a class="tel" href="tel:+79995598322">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l1.9-1.9c.3-.3.8-.4 1.2-.3 1 .3 2 .5 3.1.5.7 0 1.2.6 1.2 1.2v3c0 .7-.5 1.2-1.2 1.2C9.8 20.1 3.9 14.2 3.9 6.6c0-.7.5-1.2 1.2-1.2h3c.7 0 1.2.6 1.2 1.2 0 1 .2 2.1.5 3.1.1.4 0 .9-.3 1.2l-1.9 1.9Z"/></svg>
+            </span>
+            <span>+7 999 559 83 22</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="btn btn-ghost" onclick="toggleTheme()">🌓 Тема</button>
+        <button class="btn btn-accent" onclick="downloadPDF()">⬇ PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Герой: имя, должность слева; аватар справа -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div>
+        <h1 class="title" id="heroTitle">IT Project Manager / Руководитель IT проектов</h1>
+                <div class="about pill" id="about" style="margin-top:18px">
+          <h2 style="margin:0 0 6px">Обо мне</h2>
+          <div style="white-space: pre-wrap; color: var(--muted); margin: 0 0 8px">
+Руководитель IT-проектов с опытом реализации кейсов различного масштаба, включая комплексные государственные контракты и коммерческие продукты, а также крипто-кошельки и сервисы по предоставлению онлайн услуг. Успешно внедряю решения, увеличивающие вовлеченность пользователей, оптимизирую процессы, сокращаю количество ошибок, а также время на их устранение, снижаю задержки релизов.
+          </div>
+          <style>.check-list{display:grid;gap:8px;margin:0 0 8px}.check-item{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:var(--bg-soft);color:var(--muted)}.check-item .tick{color:var(--accent);font-weight:700}</style>
+          <div class="check-list" aria-label="Подтверждённые пункты">
+            <div class="check-item"><span>Опыт запуска проектов с нуля.  </span><span class="tick" aria-hidden="true">✓</span></div>
+            <div class="check-item"><span>Опыт погружения в существующие проекты.</span><span class="tick" aria-hidden="true">✓</span></div>
+            <div class="check-item"><span>Опыт внедрения проектов.</span><span class="tick" aria-hidden="true">✓</span></div>
+            <div class="check-item"><span>Опыт запуска и разработки Telegram mini-apps, крипто-кошельков, игр, юзабилити приложений. </span><span class="tick" aria-hidden="true">✓</span></div>
+            <div class="check-item"><span>Опыт личный разработки.</span><span class="tick" aria-hidden="true">✓</span></div>
+            <div class="check-item"><span>Опыт управления релизным циклом.</span><span class="tick" aria-hidden="true">✓</span></div>
+                        <div class="check-item"><span>Опыт разработки мобильных приложений IOS/Android.</span><span class="tick" aria-hidden="true">✓</span></div>
+          </div>
+          <div style="white-space: pre-wrap; color: var(--muted); margin: 0">
+Я человек, который доводит вещи до результата. Навожу порядок в задачах, выстраиваю удобные и эффективные процессы, провожу релизы. Умею объяснять сложное простыми словами, являюсь переводчиком между бизнесом и разработкой, держу баланс между контрактными длительными проектами и срочными внутренними задачами.
+          </div>
+      </div>
+      <div>
+        <img class="avatar-photo" src="avatar.jpg" alt="Фото Артёма" onerror="this.style.display='none'">
+        <div class="contact-card">
+          <h3 style="margin:0 0 6px;font-size:18px">Дополнительная информация</h3>
+          <div style="color:var(--muted); white-space: pre-wrap; line-height:1.6">
+Тип занятости: Постоянная работа, Подработка
+Формат работы: На месте работодателя, Удалённо, Гибрид
+Желательное время в пути до работы: Не имеет значения
+Командировки: Могу
+Переезд: Могу
+Место жительства: Москва
+Возраст: 31
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Опыт: строки с логотипом слева и кнопкой «Подробнее» справа, раскрывается вниз -->
+    <section id="experience" class="exp">
+      <h2>Опыт <span class="exp-total">(6 лет 1 месяц)</span></h2>
+      <div class="exp-list">
+        <article class="exp-row" id="exp1">
+          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="HeadPoint"></div></div>
+          <div class="exp-right">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-title">HeadPoint - Руководитель IT проектов</h3>
+                <div class="exp-meta">Сентябрь 2024 — текущее время · Единая система видеомониторинга</div>
+              </div>
+              <button class="btn exp-btn" onclick="toggleExp('exp1')">Подробнее</button>
+            </div>
+            <div class="exp-details"><div class="exp-details-inner">
+              <style>.xp p{margin:0}.xp .hd{font-weight:700;margin:16px 0}.xp{color:var(--muted)}</style>
+              <div class="xp">
+                <p class="hd">О проекте</p>
+                <p>Я работаю на проекте ГИС ЕЦХД (государственная информационная система единый центр хранения и обработки данных).</p>
+                <p class="hd">Основные цели и задачи проекта:</p>
+                <p>Повышение безопасности. Обеспечение безопасной среды для москвичей путем круглосуточного наблюдения и анализа происходящего.</p>
+                <p>Совершенствование городского управления. Предоставление единого инструмента для ведомств (МВД, МЧС, муниципальных служб) для удаленного управления и координации действий.</p>
+                <p>Развитие «Умного города». Интеграция системы видеонаблюдения в более широкую концепцию цифровизации и автоматизации городских процессов.</p>
+                <p class="hd">Что входит в мою роль:</p>
+                <p>Весь цикл IT-разработки: от бизнес-требований до релиза в прод.</p>
+                <p>Команда 25+- человек.</p>
+                <p>Пресейл - от презентаций до подписанных договоров.</p>
+                <p>Документация - аналитические записки, релизная документация, протоколы приемок.</p>
+                <p>Проведение релизов - еженедельные релизы, хотфиксы и крупные. Подготовка документации к релизу, согласование в ITSM и сопровождение релиза до его полного успешного закрытия.</p>
+                <p class="hd">Мои достижения:</p>
+                <p>Начали с хаоса в бэклоге - закончили упорядоченным планом, переход на недельные спринты для более чуткого контроля. Ведение Ганта для прозрачного понимания план-графика релизов на 12 месяцев вперед.</p>
+                <p>Внутренние задачи перестали копиться и стали частью нормального спринта.</p>
+                <p>За год закрыл техдолг по минорным задачам (800+ часов) без негативного влияния на крупные контрактные проекты.</p>
+                <p>Настроил процесс так, чтобы мы параллельно успевали и по контрактам, и по улучшениям: прозрачные планы, предсказуемые релизы, обсуждение рисков.</p>
+              </div>
+            </div></div>
+          </div>
+        </article>
+
+        <article class="exp-row" id="exp2">
+          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Millenial Group"></div></div>
+          <div class="exp-right">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-title">Millenial Group - IT Project/Product Manager</h3>
+                <div class="exp-meta">Июнь 2022 — Сентябрь 2024 · Цифровые услуги</div>
+              </div>
+              <button class="btn exp-btn" onclick="toggleExp('exp2')">Подробнее</button>
+            </div>
+            <div class="exp-details"><div class="exp-details-inner">
+              <style>.xp p{margin:0}.xp .hd{font-weight:700;margin:16px 0}.xp{color:var(--muted)}</style>
+              <div class="xp">
+                <p class="hd">О компании</p>
+                <p>Сервис цифровых услуг: онлайн-психолог, юрист, ветеринар, астрология. Витрины и личные кабинеты, мобильные приложения и Telegram mini-apps, платежи и поддержка.</p>
+                <p class="hd">Моя роль</p>
+                <p>Смежная роль между проджектом и продактом: я отвечал и за процессы/сроки, и за продуктовые решения - гипотезы, приоритизацию, UX и метрики.</p>
+                <p class="hd">Что сделал</p>
+                <p>- Переписали сайты на новый стек и обновили дизайн/UX - приток новых клиентов вырос на 20%.</p>
+                <p>- Запустили готовый продукт на новых рынках: локализация, юр-требования, подключение платежей, организация поддержки.</p>
+                <p>- Заключил 5+ партнёрских контрактов - расширили охват и ускорили рост.</p>
+                <p class="hd">Что входило в роль</p>
+                <p>- Управление портфелем проектов: 12+ сайтов, мобильные приложения, Telegram mini-apps.</p>
+                <p>- Координация команды ~10 человек (dev, дизайн, маркетинг, DevOps).</p>
+                <p>- Планирование, бюджетирование, управление рисками по всем направлениям.</p>
+                <p>- Запуски продуктов в других странах: от требований до вывода в прод.</p>
+                <p class="hd">Отдельный проект</p>
+                <p>С нуля довёл до релиза криптокошелёк в Telegram mini-app: сформировал идею, собрал команду, выпустил MVP, интегрировал финсервисы (банковские операции, микрозаймы под залог криптовалюты) и довёл до продажи заказчику.</p>
+              </div>
+            </div></div>
+          </div>
+        </article>
+
+        <article class="exp-row" id="exp3">
+          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Kinostore"></div></div>
+          <div class="exp-right">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-title">Kinostore - IT Project Manager</h3>
+                <div class="exp-meta">Октябрь 2020 - Февраль 2022 · Магазин фото- и видеотехники</div>
+              </div>
+              <button class="btn exp-btn" onclick="toggleExp('exp3')">Подробнее</button>
+            </div>
+            <div class="exp-details"><div class="exp-details-inner">
+              <style>.xp p{margin:0}.xp .hd{font-weight:700;margin:16px 0}.xp{color:var(--muted)}</style>
+              <div class="xp">
+                <p class="hd">О компании</p>
+                <p>KinoStore - современный магазин электроники с большим ассортиментом для съёмки, электротранспорта, спорта и красоты, аудиотехники и аксессуаров.</p>
+                <p class="hd">Моя роль</p>
+                <p>IT Project manager: вёл e-commerce направление - личный кабинет, программу лояльности, качество релизов и поддержку; параллельно курировал инфраструктурные проекты в офлайн-магазинах.</p>
+                <p class="hd">Что сделал</p>
+                <p>С нуля запустили личный кабинет: понятные статусы заказов, история покупок, профили клиентов.</p>
+                <p>Спроектировал и внедрил программу лояльности и систему баллов - доля повторных покупок выросла на 25%.</p>
+                <p>Навёл порядок в релизах и QA количество ошибок после обновлений сократилось на 50%.</p>
+                <p class="hd">Что входило в роль</p>
+                <p> Управление полным циклом по веб-продуктам: проектирование, тестирование, техподдержка.</p>
+                <p> Проекты модернизации инфраструктуры магазинов (кассы, видеонаблюдение).</p>
+                <p> Запуск с нуля системы баллов и личного кабинета для магазина.</p>
+              </div>
+            </div></div>
+          </div>
+        </article>
+
+        <article class="exp-row" id="exp4">
+          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Ceramic3D"></div></div>
+          <div class="exp-right">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-title">Ceramic3D - Project manager</h3>
+                <div class="exp-meta">Февраль 2018 - Октябрь 2018</div>
+              </div>
+              <button class="btn exp-btn" onclick="toggleExp('exp4')">Подробнее</button>
+            </div>
+            <div class="exp-details"><div class="exp-details-inner">
+              <style>.xp p{margin:0}.xp .hd{font-weight:700;margin:16px 0}.xp{color:var(--muted)}</style>
+              <div class="xp">
+                <p class="hd">О компании</p>
+                <p>Разработчик программы для дизайна интерьера.</p>
+                <p class="hd">Достижения:</p>
+                <p>Организовал участие компании в выставках: подготовка стенда, графиков, материалов, презентаций - продукт показывали живьём, собирали лиды.</p>
+                <p>Наладил взаимодействие между отделами: договорились о понятных правилах и сроках, убрали лишние согласования. Время на подготовку материалов значительно сократилось.</p>
+                <p class="hd">Обязанности:</p>
+                <p>Поддерживал документооборот, составлял расписания, помогал руководителю в различных задачах, участвовал в закупках и общался с клиентами для определения их потребностей.</p>
+                <p>Участвовал в подготовке материалов для рекламных кампаний и продвижения продуктов компании.</p>
+                <p>Участие в релизах и управление командой разработки.</p>
+              </div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Навыки: хард и софт -->
+    <section id="skills" class="skills">
+      <div class="skills-grid">
+        <div>
+          <h3 style="margin:0 0 10px;font-size:18px">Hard-skills</h3>
+          <div class="skill-block">
+          
+            <span class="chip">Релизы и ITSM</span>
+            <span class="chip">Спринты/Гант</span>
+            <span class="chip">Бэклог/приоритизация</span>            <span class="chip">Требования/ТЗ/документы</span>
+            <span class="chip">QA и снижение дефектов</span>
+            <span class="chip">Локализация/новые рынки</span>
+            <span class="chip">Платежи/финсервисы</span>
+            <span class="chip">Интеграции/API/Swagger</span>
+            <span class="chip">Telegram mini‑apps</span>
+            <span class="chip">iOS/Android</span>
+            <span class="chip">Аналитика/метрики</span>
+            <span class="chip">Пресейл/тендеры</span>
+            <span class="chip">Госзаказ/комплаенс</span>
+          
+        </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 10px;font-size:18px">Soft-skills</h3>
+          <div class="skill-block">
+          
+            <span class="chip">Лидерство 20+</span>
+            <span class="chip">Коммуникация бизнес↔dev</span>
+            <span class="chip">Довожу до результата</span>
+            <span class="chip">Системность/процессы</span>
+            <span class="chip">Управление рисками</span>
+            <span class="chip">Переговоры/партнёрства</span>
+            <span class="chip">Клиентоориентированность</span>
+            <span class="chip">Тайм‑менеджмент</span>
+            <span class="chip">Фасилитация/митинги</span>
+            <span class="chip">Мультизадачность</span>
+            <span class="chip">Ответственность</span>
+            <span class="chip">Стрессоустойчивость</span>
+          
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Иванов Артем Антонович. </div>
+    </footer>
+  </main>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
