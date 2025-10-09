@@ -122,7 +122,11 @@
     .footer-content .download-cv{margin-left:auto}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .pm-progress{position:relative;max-width:360px;width:100%;padding:16px 18px 26px;border:1px solid var(--border);border-radius:16px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:20px;isolation:isolate}
-    .pm-progress__title{font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .pm-progress__title{display:block;font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-right:40px}
+    .pm-progress__reset{position:absolute;top:16px;right:18px;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;transition:transform .2s ease-out, color .2s ease-out, border-color .2s ease-out}
+    .pm-progress__reset:hover{transform:scale(1.06);color:var(--accent);border-color:color-mix(in oklab, var(--accent) 40%, var(--border) 60%)}
+    .pm-progress__reset:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .pm-progress__reset svg{width:14px;height:14px;display:block}
     .pm-progress__bar{position:relative;height:4px;background:color-mix(in oklab, var(--border) 60%, transparent);border-radius:999px;overflow:hidden}
     .pm-progress__fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);transition:width .28s ease-out}
     .pm-progress__steps{display:flex;justify-content:space-between;align-items:center;position:relative}
@@ -178,6 +182,7 @@
         const steps=Array.from(progress.querySelectorAll('.pm-step'));
         const fill=progress.querySelector('.pm-progress__fill');
         const toast=progress.querySelector('.pm-toast');
+        const resetButton=progress.querySelector('.pm-progress__reset');
         const totalSteps=steps.length;
         let currentStep=1;
           let completed=false;
@@ -293,6 +298,27 @@
           });
         });
 
+        if(resetButton){
+          resetButton.addEventListener('click',()=>{
+            completed=false;
+            currentStep=1;
+            if(bubbleTimeout){
+              clearTimeout(bubbleTimeout);
+              bubbleTimeout=null;
+            }
+            progress.querySelectorAll('.pm-bubble').forEach(el=>el.remove());
+            if(toast){
+              toast.classList.remove('is-visible');
+              toast.textContent='';
+            }
+            refreshStates();
+            const firstStep=steps[0];
+            if(firstStep){
+              firstStep.focus({preventScroll:true});
+            }
+          });
+        }
+
         refreshStates();
       }
     });
@@ -374,6 +400,9 @@
           </div>
           <div class="pm-progress" role="progressbar" aria-label="Путь проекта" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
             <span class="pm-progress__title">Маршрут запуска продукта</span>
+            <button type="button" class="pm-progress__reset" aria-label="Обновить маршрут" title="Сбросить прогресс">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.44 7.34a8.5 8.5 0 0 0-15.08 2.28 1 1 0 0 0 1.92.52A6.5 6.5 0 0 1 18.5 11H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V8a1 1 0 1 0-2 0v.28a8.46 8.46 0 0 0-.56-.94Zm-14.88 9.32A8.5 8.5 0 0 0 21.6 14a1 1 0 0 0-1.92-.52A6.5 6.5 0 0 1 5.5 13H8a1 1 0 0 0 0-2H4a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-.34c.17.36.36.7.56 1Z"/></svg>
+            </button>
             <div class="pm-progress__bar" aria-hidden="true">
               <div class="pm-progress__fill"></div>
             </div>
