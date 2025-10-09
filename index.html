@@ -131,15 +131,19 @@
     .pm-progress__fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);transition:width .28s ease-out}
     .pm-progress__steps{display:flex;justify-content:space-between;align-items:center;position:relative}
     .pm-step{position:relative;width:28px;height:28px;border-radius:50%;border:2px solid color-mix(in oklab, var(--border) 70%, transparent);background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease-out, box-shadow .2s ease-out, border-color .2s ease-out, background .2s ease-out,color .2s ease-out}
+    .pm-step::after{content:"";position:absolute;inset:-2px;border-radius:inherit;pointer-events:none;opacity:0;transform:scale(1);box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 26%, transparent);z-index:-1}
     .pm-step .pm-step__icon{font-size:15px;line-height:1;filter:grayscale(1) saturate(0) brightness(.85);transition:filter .2s ease-out}
     .pm-step:hover{transform:scale(1.1)}
     .pm-step.is-active{border-color:var(--accent);background:color-mix(in oklab, var(--accent) 22%, var(--card) 78%);color:var(--accent);box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 12%, transparent)}
     .pm-step.is-active .pm-step__icon{filter:none}
     .pm-step.is-done{border-color:var(--accent);background:var(--accent);color:#03251f;box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)}
     .pm-step.is-done .pm-step__icon{filter:none}
+    .pm-step.is-pulsing::after{opacity:1;animation:pmStepPulse 1.8s ease-out infinite}
     .pm-step.is-locked{opacity:.8}
     .pm-step.is-locked:focus{outline:0}
     .pm-step[aria-disabled="true"]{cursor:not-allowed}
+    @keyframes pmStepPulse{0%{transform:scale(1);opacity:.7;box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 24%, transparent);}70%{transform:scale(1.6);opacity:0;box-shadow:0 0 0 10px color-mix(in oklab, var(--accent) 12%, transparent);}100%{transform:scale(1.6);opacity:0;box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 12%, transparent);}}
+    @media (prefers-reduced-motion: reduce){.pm-step.is-pulsing::after{animation:none;opacity:0}}
     .pm-bubble{position:absolute;padding:6px 10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;line-height:1.3;box-shadow:var(--shadow);opacity:0;transform:translate(-50%,-6px) scale(.94);transition:opacity .2s ease-out, transform .2s ease-out;pointer-events:none;white-space:nowrap;z-index:5}
     .pm-bubble.is-visible{opacity:1;transform:translate(-50%,-14px) scale(1)}
     .pm-bubble--bottom{transform:translate(-50%,6px) scale(.94)}
@@ -186,9 +190,11 @@
         const toast=progress.querySelector('.pm-toast');
         const resetButton=progress.querySelector('.pm-progress__reset');
         const totalSteps=steps.length;
+        const firstStep=steps[0]||null;
         let currentStep=1;
           let completed=false;
           let bubbleTimeout=null;
+          let hasActivatedFirstStep=false;
 
         const showBubble=(target,text,{variant='info',duration=900}={})=>{
           if(!target||!text) return;
@@ -264,12 +270,22 @@
               btn.tabIndex=-1;
             }
           });
+          if(firstStep){
+            if(!completed&&!hasActivatedFirstStep&&currentStep===1){
+              firstStep.classList.add('is-pulsing');
+            }else{
+              firstStep.classList.remove('is-pulsing');
+            }
+          }
         };
 
         const handleSuccess=(btn,stepNumber)=>{
           const hint=btn.dataset.hint;
           showBubble(btn,hint,{duration:1000});
           vibrate(18);
+          if(stepNumber===1){
+            hasActivatedFirstStep=true;
+          }
           if(stepNumber===totalSteps){
             completed=true;
             currentStep=totalSteps;
@@ -310,6 +326,7 @@
           resetButton.addEventListener('click',()=>{
             completed=false;
             currentStep=1;
+            hasActivatedFirstStep=false;
             if(bubbleTimeout){
               clearTimeout(bubbleTimeout);
               bubbleTimeout=null;
@@ -320,9 +337,9 @@
               toast.textContent='';
             }
             refreshStates();
-            const firstStep=steps[0];
-            if(firstStep){
-              firstStep.focus({preventScroll:true});
+            const firstStepButton=steps[0];
+            if(firstStepButton){
+              firstStepButton.focus({preventScroll:true});
             }
           });
         }
