@@ -68,7 +68,8 @@
     .exp-list{display:grid;gap:14px}
     .exp-row{display:grid;grid-template-columns:80px 1fr;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
     .exp-left{padding:16px;border-right:1px dashed var(--border);display:flex;align-items:center;justify-content:center}
-    .exp-logo{width:48px;height:48px;border-radius:12px;background:var(--bg-soft);border:1px solid var(--border)}
+    .exp-logo{width:48px;height:48px;border-radius:12px;background:var(--bg-soft);border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .exp-logo img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
     .exp-right{padding:16px}
     .exp-head{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
     .exp-title{margin:0;font-size:18px}
@@ -179,7 +180,7 @@
       <h2>Опыт <span class="exp-total">(6 лет 1 месяц)</span></h2>
       <div class="exp-list">
         <article class="exp-row" id="exp1">
-          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="HeadPoint"></div></div>
+          <div class="exp-left"><div class="exp-logo" title="HeadPoint"><img src="hp.jpg" alt="Логотип HeadPoint"></div></div>
           <div class="exp-right">
             <div class="exp-head">
               <div>
@@ -214,7 +215,7 @@
         </article>
 
         <article class="exp-row" id="exp2">
-          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Millenial Group"></div></div>
+          <div class="exp-left"><div class="exp-logo" title="Millenial Group"><img src="mg.jpg" alt="Логотип Millenial Group"></div></div>
           <div class="exp-right">
             <div class="exp-head">
               <div>
@@ -247,7 +248,7 @@
         </article>
 
         <article class="exp-row" id="exp3">
-          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Kinostore"></div></div>
+          <div class="exp-left"><div class="exp-logo" title="Kinostore"><img src="ks.jpg" alt="Логотип Kinostore"></div></div>
           <div class="exp-right">
             <div class="exp-head">
               <div>
@@ -277,7 +278,7 @@
         </article>
 
         <article class="exp-row" id="exp4">
-          <div class="exp-left"><div class="exp-logo" aria-hidden="true" title="Ceramic3D"></div></div>
+          <div class="exp-left"><div class="exp-logo" title="Ceramic3D"><img src="c3.jpg" alt="Логотип Ceramic3D"></div></div>
           <div class="exp-right">
             <div class="exp-head">
               <div>
