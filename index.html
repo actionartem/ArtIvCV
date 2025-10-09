@@ -21,7 +21,7 @@
     a:hover{text-decoration:underline}
     .container{width:min(1100px,92vw);margin:0 auto}
     /* Навигация */
-    header{position:sticky;top:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
+    header{position:sticky;top:0;left:0;right:0;margin:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:nowrap;overflow-x:auto}
     .brand{display:flex;align-items:center;font-weight:800;font-size:clamp(20px,2.4vw,26px);list-style:none}
     .brand a{white-space:nowrap}
@@ -139,7 +139,7 @@
     .pm-bubble{position:absolute;padding:6px 10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;line-height:1.3;box-shadow:var(--shadow);opacity:0;transform:translate(-50%,-6px) scale(.94);transition:opacity .2s ease-out, transform .2s ease-out;pointer-events:none;white-space:nowrap;z-index:5}
     .pm-bubble.is-visible{opacity:1;transform:translate(-50%,-14px) scale(1)}
     .pm-bubble.is-error{background:color-mix(in oklab, var(--accent) 18%, var(--card) 82%);border-color:color-mix(in oklab, var(--accent) 45%, var(--border) 55%);color:color-mix(in oklab, var(--accent) 18%, var(--text) 82%)}
-    .pm-toast{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);padding:14px 18px;border-radius:14px;border:1px solid var(--border);background:var(--card);box-shadow:var(--shadow);font-size:14px;line-height:1.4;text-align:center;color:var(--text);max-width:320px;width:calc(100% - 36px);opacity:0;pointer-events:none;transition:opacity .25s ease-out, transform .25s ease-out;z-index:6}
+    .pm-toast{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);padding:18px 22px;border-radius:16px;border:2px solid #000;background:var(--card);box-shadow:var(--shadow);font-size:15px;line-height:1.5;text-align:center;color:var(--text);max-width:360px;width:calc(100% - 32px);opacity:0;pointer-events:none;transition:opacity .25s ease-out, transform .25s ease-out;z-index:6}
     .pm-toast.is-visible{opacity:1;pointer-events:auto;transform:translate(-50%,-68%) scale(1)}
     .pm-toast button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
     @media (max-width:860px){
@@ -180,9 +180,8 @@
         const toast=progress.querySelector('.pm-toast');
         const totalSteps=steps.length;
         let currentStep=1;
-        let completed=false;
-        let bubbleTimeout=null;
-        let toastTimeout=null;
+          let completed=false;
+          let bubbleTimeout=null;
 
         const showBubble=(target,text,{variant='info',duration=900}={})=>{
           if(!target||!text) return;
@@ -214,16 +213,13 @@
           const hide=()=>{
             toast.classList.remove('is-visible');
           };
-          toast.onclick=(event)=>{
-            event.stopPropagation();
-            hide();
-          };
-          if(toastTimeout){
-            clearTimeout(toastTimeout);
+          const closeButton=toast.querySelector('button');
+          if(closeButton){
+            closeButton.addEventListener('click',(event)=>{
+              event.stopPropagation();
+              hide();
+            },{once:true});
           }
-          toastTimeout=window.setTimeout(()=>{
-            hide();
-          },2800);
         };
 
         const vibrate=(pattern)=>{
@@ -265,7 +261,7 @@
             completed=true;
             currentStep=totalSteps;
             refreshStates();
-            showToast('Так же просто и успешно я довожу проекты от стадии идеи до стадии релиза в ПРОД');
+            showToast('Именно так, просто и успешно я довожу проекты от стадии идеи до стадии релиза в прод!');
           }else{
             currentStep=stepNumber+1;
             refreshStates();
