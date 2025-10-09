@@ -37,7 +37,11 @@
     .btn-ghost{background:transparent;box-shadow:none}
     .btn-accent{background:var(--accent);color:#041412;border-color:color-mix(in oklab, var(--accent) 70%, black 20%)}
     /* Герой */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:40px 0 12px;align-items:stretch;grid-auto-rows:1fr}
+    .hero{padding:40px 0 12px;display:flex;flex-direction:column;gap:28px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:stretch}
+    .hero-grid .about{margin:0}
+    .hero-side{display:flex;flex-direction:column;min-height:100%}
+    .hero-side .contact-card{margin-top:auto}
     .pill{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:20px 22px;box-shadow:var(--shadow)}
     .title{font-size:clamp(30px,3.2vw,42px);line-height:1.15;margin:0 0 8px}
     .role{display:inline-block;margin:8px 0 0;border-radius:12px;border:1px dashed var(--border);background:var(--bg-soft);padding:8px 12px;font-size:clamp(16px,1.9vw,20px);color:#5A7BD8;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
@@ -89,7 +93,7 @@
     .contacts{padding:12px 0 18px}
     .contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}
     footer{color:var(--muted);padding:18px 0 40px;font-size:14px;border-top:1px solid var(--border)}
-    @media (max-width:860px){ .hero{grid-template-columns:1fr}.avatar{margin:0 auto} .skills-grid{grid-template-columns:1fr} }
+    @media (max-width:860px){ .hero{gap:18px} .hero-grid{grid-template-columns:1fr;gap:18px} .hero-side{min-height:auto} .hero-side .contact-card{margin-top:18px} .avatar-photo{margin:0 auto} .skills-grid{grid-template-columns:1fr} }
     @media print{header,.btn,.exp-btn{display:none!important} body{background:#fff;color:#000} .pill,.contact-card,.skill-block,.exp-row{box-shadow:none;border-color:#bbb} a{color:#000;text-decoration:none}}
   </style>
   <script>
@@ -127,6 +131,8 @@
   <main class="container">
     <!-- Герой: имя, должность слева; аватар справа -->
     <section class="hero" aria-labelledby="heroTitle">
+      <h1 class="title" id="heroTitle">IT Project Manager / Руководитель IT проектов</h1>
+      <div class="hero-grid">
       <div>
         <h1 class="title" id="heroTitle">IT Project Manager / Руководитель IT проектов</h1>
         <div class="about pill" id="about">
@@ -148,12 +154,11 @@
 Я человек, который доводит вещи до результата. Навожу порядок в задачах, выстраиваю удобные и эффективные процессы, провожу релизы. Умею объяснять сложное простыми словами, являюсь переводчиком между бизнесом и разработкой, держу баланс между контрактными длительными проектами и срочными внутренними задачами.
           </div>
         </div>
-      </div>
-      <div>
-        <img class="avatar-photo" src="avatar.jpg" alt="Фото Артёма" onerror="this.style.display='none'">
-        <div class="contact-card">
-          <h3 style="margin:0 0 6px;font-size:18px">Дополнительная информация</h3>
-          <div style="color:var(--muted); white-space: pre-wrap; line-height:1.6">
+        <div class="hero-side">
+          <img class="avatar-photo" src="avatar.jpg" alt="Фото Артёма" onerror="this.style.display='none'">
+          <div class="contact-card">
+            <h3 style="margin:0 0 6px;font-size:18px">Дополнительная информация</h3>
+            <div style="color:var(--muted); white-space: pre-wrap; line-height:1.6">
 Тип занятости: Постоянная работа, Подработка
 Формат работы: На месте работодателя, Удалённо, Гибрид
 Желательное время в пути до работы: Не имеет значения
@@ -161,6 +166,7 @@
 Переезд возможен
 Место жительства: Москва
 Возраст: 31
+            </div>
           </div>
         </div>
       </div>
