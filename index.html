@@ -20,8 +20,7 @@
     /* Навигация */
     header{position:sticky;top:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:nowrap;overflow-x:auto}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:clamp(20px,2.4vw,26px)}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 6px color-mix(in oklab, var(--accent) 22%, transparent)}
+    .brand{display:flex;align-items:center;font-weight:800;font-size:clamp(20px,2.4vw,26px);list-style:none}
     .nav-links{display:flex;gap:18px;flex-wrap:nowrap}
     /* Контакты в шапке */
     .top-contacts{display:flex;align-items:center;gap:18px;flex-wrap:nowrap}
@@ -143,7 +142,7 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand"><span class="dot"></span><a href="#">Иванов Артем Антонович</a></div>
+      <div class="brand"><a href="#">Иванов Артем Антонович</a></div>
       <div class="top-contacts" role="navigation" aria-label="Контакты в шапке">
         <a class="tg" href="https://t.me/artivtw" target="_blank" rel="noreferrer">
             <span class="icon" aria-hidden="true">
