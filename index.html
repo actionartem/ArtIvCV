@@ -21,7 +21,7 @@
     a:hover{text-decoration:underline}
     .container{width:min(1100px,92vw);margin:0 auto}
     /* Навигация */
-    header{position:sticky;top:0;left:0;right:0;margin:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
+    header{position:static;margin:0;z-index:100; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:nowrap;overflow-x:auto}
     .brand{display:flex;align-items:center;font-weight:800;font-size:clamp(20px,2.4vw,26px);list-style:none}
     .brand a{white-space:nowrap}
@@ -122,22 +122,32 @@
     .footer-content .download-cv{margin-left:auto}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .pm-progress{position:relative;max-width:360px;width:100%;padding:16px 18px 26px;border:1px solid var(--border);border-radius:16px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:20px;isolation:isolate}
-    .pm-progress__title{font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .pm-progress__title{display:block;font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-right:40px}
+    .pm-progress__reset{position:absolute;top:16px;right:18px;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;transition:transform .2s ease-out, color .2s ease-out, border-color .2s ease-out}
+    .pm-progress__reset:hover{transform:scale(1.06);color:var(--accent);border-color:color-mix(in oklab, var(--accent) 40%, var(--border) 60%)}
+    .pm-progress__reset:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .pm-progress__reset svg{width:14px;height:14px;display:block}
     .pm-progress__bar{position:relative;height:4px;background:color-mix(in oklab, var(--border) 60%, transparent);border-radius:999px;overflow:hidden}
     .pm-progress__fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);transition:width .28s ease-out}
     .pm-progress__steps{display:flex;justify-content:space-between;align-items:center;position:relative}
     .pm-step{position:relative;width:28px;height:28px;border-radius:50%;border:2px solid color-mix(in oklab, var(--border) 70%, transparent);background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease-out, box-shadow .2s ease-out, border-color .2s ease-out, background .2s ease-out,color .2s ease-out}
+    .pm-step::after{content:"";position:absolute;inset:-2px;border-radius:inherit;pointer-events:none;opacity:0;transform:scale(1);box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 26%, transparent);z-index:-1}
     .pm-step .pm-step__icon{font-size:15px;line-height:1;filter:grayscale(1) saturate(0) brightness(.85);transition:filter .2s ease-out}
     .pm-step:hover{transform:scale(1.1)}
     .pm-step.is-active{border-color:var(--accent);background:color-mix(in oklab, var(--accent) 22%, var(--card) 78%);color:var(--accent);box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 12%, transparent)}
     .pm-step.is-active .pm-step__icon{filter:none}
     .pm-step.is-done{border-color:var(--accent);background:var(--accent);color:#03251f;box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent)}
     .pm-step.is-done .pm-step__icon{filter:none}
+    .pm-step.is-pulsing::after{opacity:1;animation:pmStepPulse 1.8s ease-out infinite}
     .pm-step.is-locked{opacity:.8}
     .pm-step.is-locked:focus{outline:0}
     .pm-step[aria-disabled="true"]{cursor:not-allowed}
+    @keyframes pmStepPulse{0%{transform:scale(1);opacity:.7;box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 24%, transparent);}70%{transform:scale(1.6);opacity:0;box-shadow:0 0 0 10px color-mix(in oklab, var(--accent) 12%, transparent);}100%{transform:scale(1.6);opacity:0;box-shadow:0 0 0 0 color-mix(in oklab, var(--accent) 12%, transparent);}}
+    @media (prefers-reduced-motion: reduce){.pm-step.is-pulsing::after{animation:none;opacity:0}}
     .pm-bubble{position:absolute;padding:6px 10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;line-height:1.3;box-shadow:var(--shadow);opacity:0;transform:translate(-50%,-6px) scale(.94);transition:opacity .2s ease-out, transform .2s ease-out;pointer-events:none;white-space:nowrap;z-index:5}
     .pm-bubble.is-visible{opacity:1;transform:translate(-50%,-14px) scale(1)}
+    .pm-bubble--bottom{transform:translate(-50%,6px) scale(.94)}
+    .pm-bubble--bottom.is-visible{transform:translate(-50%,14px) scale(1)}
     .pm-bubble.is-error{background:color-mix(in oklab, var(--accent) 18%, var(--card) 82%);border-color:color-mix(in oklab, var(--accent) 45%, var(--border) 55%);color:color-mix(in oklab, var(--accent) 18%, var(--text) 82%)}
     .pm-toast{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);padding:18px 22px;border-radius:16px;border:2px solid #000;background:var(--card);box-shadow:var(--shadow);font-size:15px;line-height:1.5;text-align:center;color:var(--text);max-width:360px;width:calc(100% - 32px);opacity:0;pointer-events:none;transition:opacity .25s ease-out, transform .25s ease-out;z-index:6}
     .pm-toast.is-visible{opacity:1;pointer-events:auto;transform:translate(-50%,-68%) scale(1)}
@@ -178,10 +188,13 @@
         const steps=Array.from(progress.querySelectorAll('.pm-step'));
         const fill=progress.querySelector('.pm-progress__fill');
         const toast=progress.querySelector('.pm-toast');
+        const resetButton=progress.querySelector('.pm-progress__reset');
         const totalSteps=steps.length;
+        const firstStep=steps[0]||null;
         let currentStep=1;
           let completed=false;
           let bubbleTimeout=null;
+          let hasActivatedFirstStep=false;
 
         const showBubble=(target,text,{variant='info',duration=900}={})=>{
           if(!target||!text) return;
@@ -195,7 +208,13 @@
           bubble.textContent=text;
           const btnRect=target.getBoundingClientRect();
           const progressRect=progress.getBoundingClientRect();
-          bubble.style.top=`${btnRect.top-progressRect.top-18}px`;
+          const position=target.dataset.bubblePosition||'top';
+          if(position==='bottom'){
+            bubble.classList.add('pm-bubble--bottom');
+            bubble.style.top=`${btnRect.bottom-progressRect.top+18}px`;
+          }else{
+            bubble.style.top=`${btnRect.top-progressRect.top-18}px`;
+          }
           bubble.style.left=`${btnRect.left-progressRect.left+btnRect.width/2}px`;
           progress.appendChild(bubble);
           requestAnimationFrame(()=>bubble.classList.add('is-visible'));
@@ -251,12 +270,22 @@
               btn.tabIndex=-1;
             }
           });
+          if(firstStep){
+            if(!completed&&!hasActivatedFirstStep&&currentStep===1){
+              firstStep.classList.add('is-pulsing');
+            }else{
+              firstStep.classList.remove('is-pulsing');
+            }
+          }
         };
 
         const handleSuccess=(btn,stepNumber)=>{
           const hint=btn.dataset.hint;
           showBubble(btn,hint,{duration:1000});
           vibrate(18);
+          if(stepNumber===1){
+            hasActivatedFirstStep=true;
+          }
           if(stepNumber===totalSteps){
             completed=true;
             currentStep=totalSteps;
@@ -292,6 +321,28 @@
             }
           });
         });
+
+        if(resetButton){
+          resetButton.addEventListener('click',()=>{
+            completed=false;
+            currentStep=1;
+            hasActivatedFirstStep=false;
+            if(bubbleTimeout){
+              clearTimeout(bubbleTimeout);
+              bubbleTimeout=null;
+            }
+            progress.querySelectorAll('.pm-bubble').forEach(el=>el.remove());
+            if(toast){
+              toast.classList.remove('is-visible');
+              toast.textContent='';
+            }
+            refreshStates();
+            const firstStepButton=steps[0];
+            if(firstStepButton){
+              firstStepButton.focus({preventScroll:true});
+            }
+          });
+        }
 
         refreshStates();
       }
@@ -373,28 +424,31 @@
             </div>
           </div>
           <div class="pm-progress" role="progressbar" aria-label="Путь проекта" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
-            <span class="pm-progress__title">Маршрут запуска продукта</span>
+            <span class="pm-progress__title">Путь реализации проекта</span>
+            <button type="button" class="pm-progress__reset" aria-label="Обновить маршрут" title="Сбросить прогресс">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.44 7.34a8.5 8.5 0 0 0-15.08 2.28 1 1 0 0 0 1.92.52A6.5 6.5 0 0 1 18.5 11H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V8a1 1 0 1 0-2 0v.28a8.46 8.46 0 0 0-.56-.94Zm-14.88 9.32A8.5 8.5 0 0 0 21.6 14a1 1 0 0 0-1.92-.52A6.5 6.5 0 0 1 5.5 13H8a1 1 0 0 0 0-2H4a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-.34c.17.36.36.7.56 1Z"/></svg>
+            </button>
             <div class="pm-progress__bar" aria-hidden="true">
               <div class="pm-progress__fill"></div>
             </div>
             <div class="pm-progress__steps">
-              <button type="button" class="pm-step is-active" data-step="1" data-hint="Зафиксировали цель и измеримый результат" aria-label="Бриф → Цель">
+              <button type="button" class="pm-step is-active" data-step="1" data-hint="Идея проекта" aria-label="Бриф → Цель">
                 <span class="pm-step__icon" aria-hidden="true">📝</span>
                 <span class="sr-only">Бриф → Цель</span>
               </button>
-              <button type="button" class="pm-step is-locked" data-step="2" data-hint="Есть план и SLA, риски отмечены" aria-label="План → Аналитика">
+              <button type="button" class="pm-step is-locked" data-step="2" data-hint="Аналитика и планирование" aria-label="План → Аналитика">
                 <span class="pm-step__icon" aria-hidden="true">🧭</span>
                 <span class="sr-only">План → Аналитика</span>
               </button>
-              <button type="button" class="pm-step is-locked" data-step="3" data-hint="Команда в фокусе, прогресс прозрачный" aria-label="Разработка → Синхрон">
+              <button type="button" class="pm-step is-locked" data-step="3" data-hint="Разработка" aria-label="Разработка → Синхрон">
                 <span class="pm-step__icon" aria-hidden="true">🔧</span>
                 <span class="sr-only">Разработка → Синхрон</span>
               </button>
-              <button type="button" class="pm-step is-locked" data-step="4" data-hint="Дефекты закрыты, релизный список пройден" aria-label="QA → Готовность к релизу">
+              <button type="button" class="pm-step is-locked" data-step="4" data-hint="Тестирование" aria-label="QA → Готовность к релизу">
                 <span class="pm-step__icon" aria-hidden="true">✅</span>
                 <span class="sr-only">QA → Готовность к релизу</span>
               </button>
-              <button type="button" class="pm-step is-locked" data-step="5" data-hint="В проде. Метрики зелёные" aria-label="Релиз → Мониторинг">
+              <button type="button" class="pm-step is-locked" data-step="5" data-hint="Релиз в продакшен" data-bubble-position="bottom" aria-label="Релиз → Мониторинг">
                 <span class="pm-step__icon" aria-hidden="true">🚀</span>
                 <span class="sr-only">Релиз → Мониторинг</span>
               </button>
@@ -600,7 +654,6 @@
             <span class="chip">Тайм‑менеджмент</span>
             <span class="chip">Фасилитация/митинги</span>
             <span class="chip">Мультизадачность</span>
-            <span class="chip">Ответственность</span>
             <span class="chip">Стрессоустойчивость</span>
           
         </div>
