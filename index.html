@@ -78,6 +78,12 @@
     .about{margin:18px 0 8px}
     .about .pill{border-radius:24px}
     .about h2{margin:0 0 8px;font-size:22px}
+    .about-text{color:var(--muted);margin:0 0 12px}
+    .about-text p{margin:0 0 12px}
+    .about-text p:last-child{margin-bottom:0}
+    .about-subtitle{color:var(--muted);margin:0 0 8px;font-weight:600}
+    .about-list,.about-experience{margin:0 0 12px;padding-left:20px;color:var(--muted);display:grid;gap:6px}
+    .about-list:last-child,.about-experience:last-child{margin-bottom:0}
     /* Опыт */
     .exp{padding:18px 0}
     .exp h2{font-size:22px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline}
@@ -392,22 +398,29 @@
       <div class="hero-layout">
         <div class="about pill" id="about">
           <h2 style="margin:0 0 6px">Обо мне</h2>
-          <div style="white-space: pre-wrap; color: var(--muted); margin: 0 0 8px">
-Руководитель IT-проектов с опытом реализации кейсов различного масштаба, включая комплексные государственные контракты и коммерческие продукты, а также крипто-кошельки и сервисы по предоставлению онлайн услуг. Успешно внедряю решения, увеличивающие вовлеченность пользователей, оптимизирую процессы, сокращаю количество ошибок, а также время на их устранение, снижаю задержки релизов.
+          <div class="about-text">
+            <p>Руководитель IT-проектов с опытом реализации кейсов различного масштаба, включая комплексные государственные контракты и коммерческие продукты, а также крипто-кошельки и сервисы по предоставлению онлайн услуг. Успешно внедряю решения, увеличивающие вовлеченность пользователей, оптимизирую процессы, сокращаю количество ошибок, а также время на их устранение, снижаю задержки релизов.</p>
+            <p>Обладаю техническим и управленческим бэкграундом, детальным пониманием и практикой в области управления проектами на всех этапах жизненного цикла: от выявления требований до внедрения и эксплуатации, а также навыками формирования сплочённых команд, ориентированных на достижение общих целей.</p>
           </div>
-          <style>.check-list{display:grid;gap:8px;margin:0 0 8px}.check-item{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:var(--bg-soft);color:var(--muted)}.check-item .tick{color:var(--accent);font-weight:700}</style>
-          <div class="check-list" aria-label="Подтверждённые пункты">
-            <div class="check-item"><span>Опыт запуска проектов с нуля.  </span><span class="tick" aria-hidden="true">✓</span></div>
-            <div class="check-item"><span>Опыт погружения в существующие проекты.</span><span class="tick" aria-hidden="true">✓</span></div>
-            <div class="check-item"><span>Опыт внедрения проектов.</span><span class="tick" aria-hidden="true">✓</span></div>
-            <div class="check-item"><span>Опыт запуска и разработки Telegram mini-apps, крипто-кошельков, игр, юзабилити приложений. </span><span class="tick" aria-hidden="true">✓</span></div>
-            <div class="check-item"><span>Опыт личный разработки.</span><span class="tick" aria-hidden="true">✓</span></div>
-            <div class="check-item"><span>Опыт управления релизным циклом.</span><span class="tick" aria-hidden="true">✓</span></div>
-                        <div class="check-item"><span>Опыт разработки мобильных приложений IOS/Android.</span><span class="tick" aria-hidden="true">✓</span></div>
-          </div>
-          <div style="white-space: pre-wrap; color: var(--muted); margin: 0">
-Я человек, который доводит вещи до результата. Навожу порядок в задачах, выстраиваю удобные и эффективные процессы, провожу релизы. Умею объяснять сложное простыми словами, являюсь переводчиком между бизнесом и разработкой, держу баланс между контрактными длительными проектами и срочными внутренними задачами.
-          </div>
+          <p class="about-subtitle">Ключевые компетенции и инструменты:</p>
+          <ul class="about-list">
+            <li>Ведение проектов полного цикла: сбор и анализ требований, постановка задач, контроль выполнения, сдача результатов заказчику.</li>
+            <li>Управление бюджетом, ресурсное планирование, оптимизация затрат.</li>
+            <li>Организация и контроль выполнения проектных задач, эффективная проектная коммуникация: взаимодействие с заказчиками, презентация решений и отчетности.</li>
+            <li>Подготовка технической, тендерной и проектно-сметной документации: СТ, ФТ, НФТ, БТ, ТЗ, API, архитектура, ПМИ, руководства, ЧТЗ, НМЦК, Паспорт проекта, ТЭО, ресурсный план.</li>
+            <li>Применение Agile (Scrum, Kanban, SAFe, Lean) и классических (Waterfall, PMBOK) проектных методологий.</li>
+            <li>Опыт проектирования интеграций в монолитной и микросервисной архитектуре, понимание принципов клиент-серверного взаимодействия и жизненного цикла разработки ПО.</li>
+            <li>Уверенное владение инструментами трекинга и планирования задач (Jira, Confluence, MS Project, Google Sheets), а также продуктами MS Office (Excel, Access, Word, Outlook, PowerPoint, Visio).</li>
+            <li>Применение нотаций и инструментов описания требований Use Case, User Story, BPMN, UML, ведение диаграмм Ганта для контроля выполнения задач и соблюдения сроков релиза.</li>
+          </ul>
+          <ul class="about-experience">
+            <li>Опыт запуска проектов с нуля.</li>
+            <li>Опыт погружения в текущие проекты.</li>
+            <li>Опыт внедрения и интеграции проектов.</li>
+            <li>Опыт запуска и разработки Telegram mini-apps, крипто-кошельков, игр, юзабилити приложений.</li>
+            <li>Опыт личный разработки.</li>
+            <li>Опыт разработки мобильных приложений IOS/Android.</li>
+          </ul>
         </div>
         <div class="hero-side">
           <img class="avatar-photo" src="avatar.jpg" alt="Фото Артёма" onerror="this.style.display='none'">
