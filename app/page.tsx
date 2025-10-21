@@ -606,6 +606,17 @@ export default function ResumePage() {
                 <div className="space-y-4 text-foreground">
                   <p className="leading-relaxed">{job.intro}</p>
 
+                  {job.introList?.length ? (
+                    <ul className="space-y-2 text-muted-foreground">
+                      {(job.introList ?? []).map((item: string, i: number) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                          <span className="text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+
                   {expandedJobs.includes(index) && (
                     <div className="space-y-4 border-t border-border/50 pt-4">
                       {job.goals && (
