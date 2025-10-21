@@ -453,9 +453,7 @@ export default function ResumePage() {
     }
   }
 
-  const handlePrint = () => {
-    window.print()
-  }
+  const pdfPath = "/IvanovArtemCV.pdf"
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -513,11 +511,13 @@ export default function ResumePage() {
             <Button
               variant="outline"
               size="sm"
-              onClick={handlePrint}
+              asChild
               className="hidden gap-2 border-border/50 bg-transparent text-foreground transition-colors hover:border-accent hover:text-foreground md:flex print:hidden"
             >
-              <Download className="h-4 w-4" />
-              {t.cta.download}
+              <a href={pdfPath} download>
+                <Download className="h-4 w-4" />
+                {t.cta.download}
+              </a>
             </Button>
             <Button
               size="sm"
@@ -819,11 +819,13 @@ export default function ResumePage() {
                   </Button>
                   <Button
                     variant="outline"
-                    onClick={handlePrint}
+                    asChild
                     className="flex-1 border-border/50 bg-transparent text-foreground transition-all hover:border-accent hover:text-foreground"
                   >
-                    <Download className="mr-2 h-4 w-4" />
-                    {t.cta.download}
+                    <a href={pdfPath} download>
+                      <Download className="mr-2 h-4 w-4" />
+                      {t.cta.download}
+                    </a>
                   </Button>
                 </div>
               </div>
