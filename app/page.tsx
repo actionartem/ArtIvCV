@@ -13,6 +13,7 @@ const translations = {
       about: "Обо мне",
       skills: "Навыки",
       experience: "Опыт",
+      education: "Образование",
       contact: "Контакты",
     },
     cta: {
@@ -79,6 +80,23 @@ const translations = {
         "Фасилитация/митинги",
         "Мультизадачность",
         "Стрессоустойчивость",
+      ],
+    },
+    education: {
+      title: "Образование",
+      items: [
+        {
+          institution: "Уральский федеральный университет имени первого Президента России Б.Н. Ельцина",
+          location: "Екатеринбург",
+          period: "09/2012 – 06/2016",
+          degree: "Инженерия программного обеспечения",
+        },
+        {
+          institution: "Уральский федеральный университет имени первого Президента России Б.Н. Ельцина",
+          location: "Екатеринбург",
+          period: "09/2014 – 06/2016",
+          degree: "Государственное и муниципальное управление",
+        },
       ],
     },
     experience: {
@@ -208,6 +226,7 @@ const translations = {
       about: "About",
       skills: "Skills",
       experience: "Experience",
+      education: "Education",
       contact: "Contact",
     },
     cta: {
@@ -274,6 +293,23 @@ const translations = {
         "Facilitation/Meetings",
         "Multitasking",
         "Stress Resilience",
+      ],
+    },
+    education: {
+      title: "Education",
+      items: [
+        {
+          institution: "Ural Federal University named after the First President of Russia B. N. Yeltsin",
+          location: "Yekaterinburg",
+          period: "09/2012 – 06/2016",
+          degree: "Software Engineering",
+        },
+        {
+          institution: "Ural Federal University named after the First President of Russia B. N. Yeltsin",
+          location: "Yekaterinburg",
+          period: "09/2014 – 06/2016",
+          degree: "State and Municipal Administration",
+        },
       ],
     },
     experience: {
@@ -449,6 +485,12 @@ export default function ResumePage() {
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
               >
                 {t.nav.experience}
+              </button>
+              <button
+                onClick={() => scrollToSection("education")}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+              >
+                {t.nav.education}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -691,6 +733,31 @@ export default function ResumePage() {
                     )}
                   </Button>
                 )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="mb-24 scroll-mt-20">
+          <h2 className="mb-8 text-4xl font-bold tracking-tight">{t.education.title}</h2>
+          <div className="space-y-6">
+            {t.education.items.map((item, index) => (
+              <div
+                key={index}
+                className="group relative rounded-xl border border-border/50 bg-muted/30 p-6 shadow-sm transition-all hover:border-accent/30 hover:shadow-md"
+              >
+                <div className="absolute -left-3 top-8 h-6 w-6 rounded-full border-4 border-background bg-accent shadow-lg shadow-accent/20" />
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight">{item.institution}</h3>
+                    <p className="text-sm text-muted-foreground">{item.location}</p>
+                  </div>
+                  <span className="self-start rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent sm:self-auto">
+                    {item.period}
+                  </span>
+                </div>
+                <p className="mt-4 text-base font-semibold text-foreground">{item.degree}</p>
               </div>
             ))}
           </div>
