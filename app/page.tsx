@@ -184,7 +184,7 @@ const translations = {
           role: "Junior Python Developer",
           period: "Август 2016 — Ноябрь 2016 (4 месяца)",
           intro: "Чем занимался:",
-          achievementsList: [
+          introList: [
             "Делал небольшие правки и багфиксы в бэкенде на Python/Django: views, urls, формы, админка.",
             "Писал простые CRUD-эндпоинты и обработчики форм, добавлял валидацию.",
             "Добавлял миграции и модели под мелкие фичи, правил SQL-запросы под задачи.",
@@ -378,7 +378,7 @@ const translations = {
           role: "Junior Python Developer",
           period: "August 2016 — November 2016 (4 months)",
           intro: "What I did:",
-          achievementsList: [
+          introList: [
             "Made small fixes and bugfixes in Python/Django backend: views, urls, forms, admin.",
             "Wrote simple CRUD endpoints and form handlers, added validation.",
             "Added migrations and models for small features, adjusted SQL queries for tasks.",
@@ -603,6 +603,17 @@ export default function ResumePage() {
 
                 <div className="space-y-4 text-foreground">
                   <p className="leading-relaxed">{job.intro}</p>
+
+                  {job.introList?.length ? (
+                    <ul className="space-y-2 text-muted-foreground">
+                      {(job.introList ?? []).map((item: string, i: number) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                          <span className="text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
 
                   {expandedJobs.includes(index) && (
                     <div className="space-y-4 border-t border-border/50 pt-4">
