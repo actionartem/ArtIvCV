@@ -183,8 +183,9 @@ const translations = {
           duration: "4 месяца",
           role: "Junior Python Developer",
           period: "Август 2016 — Ноябрь 2016 (4 месяца)",
-          intro: "Чем занимался:",
-          introList: [
+          intro: "Поддерживал бэкенд на Python/Django под внутренние задачи.",
+          role_desc: "Чем занимался:",
+          roleList: [
             "Делал небольшие правки и багфиксы в бэкенде на Python/Django: views, urls, формы, админка.",
             "Писал простые CRUD-эндпоинты и обработчики форм, добавлял валидацию.",
             "Добавлял миграции и модели под мелкие фичи, правил SQL-запросы под задачи.",
@@ -377,11 +378,12 @@ const translations = {
           duration: "4 months",
           role: "Junior Python Developer",
           period: "August 2016 — November 2016 (4 months)",
-          intro: "What I did:",
-          introList: [
-            "Made small fixes and bugfixes in Python/Django backend: views, urls, forms, admin.",
-            "Wrote simple CRUD endpoints and form handlers, added validation.",
-            "Added migrations and models for small features, adjusted SQL queries for tasks.",
+          intro: "Maintained the Python/Django backend for internal features.",
+          role_desc: "What I did:",
+          roleList: [
+            "Made small fixes and bugfixes in the Python/Django backend: views, urls, forms, admin.",
+            "Built simple CRUD endpoints and form handlers, added validation.",
+            "Created migrations and models for small features, tuned SQL queries for specific tasks.",
           ],
         },
       ],
