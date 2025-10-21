@@ -197,7 +197,7 @@ const translations = {
           ],
         },
         {
-          company: "«Артсофте»",
+          company: "Артсофте",
           duration: "4 месяца",
           role: "Junior Python Developer",
           period: "Август 2016 — Ноябрь 2016 (4 месяца)",
