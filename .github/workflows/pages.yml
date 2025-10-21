@@ -32,16 +32,15 @@ jobs:
       - name: Install deps
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build
+      - name: Build (creates out/)
         run: pnpm run build
-
-      - name: Export static
-        run: pnpm run export
 
       - name: Prepare Pages artifact
         run: |
+          test -d out || (echo "out/ not found after build" && exit 1)
           touch out/.nojekyll
           if [ -f CNAME ]; then cp CNAME out/CNAME; else echo "www.artemivanovcv.ru" > out/CNAME; fi
+          ls -la out
 
       - uses: actions/upload-pages-artifact@v3
         with:
