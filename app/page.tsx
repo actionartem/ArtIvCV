@@ -472,7 +472,7 @@ export default function ResumePage() {
               variant="outline"
               size="sm"
               onClick={handlePrint}
-              className="hidden gap-2 border-border/50 bg-transparent transition-colors hover:border-accent hover:text-accent md:flex print:hidden"
+              className="hidden gap-2 border-border/50 bg-transparent text-foreground transition-colors hover:border-accent hover:text-foreground md:flex print:hidden"
             >
               <Download className="h-4 w-4" />
               {t.cta.download}
@@ -753,7 +753,7 @@ export default function ResumePage() {
                   <Button
                     variant="outline"
                     onClick={handlePrint}
-                    className="flex-1 border-border/50 bg-transparent transition-all hover:border-accent hover:text-accent"
+                    className="flex-1 border-border/50 bg-transparent text-foreground transition-all hover:border-accent hover:text-foreground"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     {t.cta.download}
