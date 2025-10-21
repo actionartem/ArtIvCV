@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Mail, Phone, MessageCircle, Download, ChevronDown, ChevronUp, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import QRCode from "react-qr-code"
@@ -105,6 +106,11 @@ const translations = {
       jobs: [
         {
           company: "HeadPoint",
+          avatar: {
+            type: "image",
+            src: "/experience/hp.jpg",
+            alt: "Логотип HeadPoint",
+          },
           duration: "1 год и 2 месяца",
           role: "Руководитель IT проектов",
           period: "Сентябрь 2024 — сейчас (1 год и 2 месяца)",
@@ -134,6 +140,11 @@ const translations = {
         },
         {
           company: "Миллениал Групп",
+          avatar: {
+            type: "image",
+            src: "/experience/mg.jpg",
+            alt: "Логотип Миллениал Групп",
+          },
           duration: "2 года и 4 месяца",
           role: "Руководитель IT проектов",
           period: "Март 2022 — Июнь 2024 (2 года и 4 месяца)",
@@ -159,6 +170,11 @@ const translations = {
         },
         {
           company: "Kremlin Store",
+          avatar: {
+            type: "image",
+            src: "/experience/ks.jpg",
+            alt: "Логотип Kremlin Store",
+          },
           duration: "1 год и 5 месяцев",
           role: "IT Project manager",
           period: "Октябрь 2020 — Февраль 2022 (1 год и 5 месяцев)",
@@ -179,6 +195,11 @@ const translations = {
         },
         {
           company: "Ceramic3d",
+          avatar: {
+            type: "image",
+            src: "/experience/c3.jpg",
+            alt: "Логотип Ceramic3d",
+          },
           duration: "9 месяцев",
           role: "Junior project manager",
           period: "Февраль 2018 — Октябрь 2018 (9 месяцев)",
@@ -197,6 +218,10 @@ const translations = {
         },
         {
           company: "Артсофте",
+          avatar: {
+            type: "initials",
+            text: "AS",
+          },
           duration: "4 месяца",
           role: "Junior Python Developer",
           period: "Август 2016 — Ноябрь 2016 (4 месяца)",
@@ -318,6 +343,11 @@ const translations = {
       jobs: [
         {
           company: "HeadPoint",
+          avatar: {
+            type: "image",
+            src: "/experience/hp.jpg",
+            alt: "HeadPoint logo",
+          },
           duration: "1 year 2 months",
           role: "IT Project Manager",
           period: "September 2024 — Present (1 year 2 months)",
@@ -347,6 +377,11 @@ const translations = {
         },
         {
           company: "Millennial Group",
+          avatar: {
+            type: "image",
+            src: "/experience/mg.jpg",
+            alt: "Millennial Group logo",
+          },
           duration: "2 years 4 months",
           role: "IT Project Manager",
           period: "March 2022 — June 2024 (2 years 4 months)",
@@ -372,6 +407,11 @@ const translations = {
         },
         {
           company: "Kremlin Store",
+          avatar: {
+            type: "image",
+            src: "/experience/ks.jpg",
+            alt: "Kremlin Store logo",
+          },
           duration: "1 year 5 months",
           role: "IT Project Manager",
           period: "October 2020 — February 2022 (1 year 5 months)",
@@ -392,6 +432,11 @@ const translations = {
         },
         {
           company: "Ceramic3d",
+          avatar: {
+            type: "image",
+            src: "/experience/c3.jpg",
+            alt: "Ceramic3d logo",
+          },
           duration: "9 months",
           role: "Junior Project Manager",
           period: "February 2018 — October 2018 (9 months)",
@@ -410,6 +455,10 @@ const translations = {
         },
         {
           company: "Artsofte",
+          avatar: {
+            type: "initials",
+            text: "AS",
+          },
           duration: "4 months",
           role: "Junior Python Developer",
           period: "August 2016 — November 2016 (4 months)",
@@ -635,8 +684,27 @@ export default function ResumePage() {
                 className="group relative rounded-xl border border-border/50 bg-muted/30 p-6 shadow-sm transition-all hover:border-accent/30 hover:shadow-md"
               >
                 <div className="absolute -left-3 top-8 h-6 w-6 rounded-full border-4 border-background bg-accent shadow-lg shadow-accent/20" />
-                <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-                  <h3 className="text-2xl font-bold tracking-tight">{job.company}</h3>
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    {job.avatar ? (
+                      <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-border/60 bg-background shadow-sm shadow-accent/10">
+                        {job.avatar.type === "image" ? (
+                          <Image
+                            src={job.avatar.src}
+                            alt={job.avatar.alt}
+                            width={48}
+                            height={48}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <span className="text-lg font-semibold leading-none text-accent">
+                            {job.avatar.text}
+                          </span>
+                        )}
+                      </div>
+                    ) : null}
+                    <h3 className="text-2xl font-bold tracking-tight">{job.company}</h3>
+                  </div>
                   <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
                     {job.duration}
                   </span>
