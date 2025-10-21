@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   title: 'Ivanov Artem CV',
   description: 'Created with love',
   generator: 'Ivanov Artem',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/cv-monogram-light.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/cv-monogram-light-512.png',
+  },
 }
 
 export default function RootLayout({
