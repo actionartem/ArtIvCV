@@ -36,8 +36,11 @@ const translations = {
       text: "Руководитель IT-проектов с опытом реализации кейсов различного масштаба, включая комплексные государственные контракты и коммерческие продукты, а также крипто-кошельки и сервисы по предоставлению онлайн услуг. Успешно внедряю решения, увеличивающие вовлеченность пользователей, оптимизирую процессы, сокращаю количество ошибок, а также время на их устранение, снижаю задержки релизов.",
       text2:
         "Обладаю техническим и управленческим бэкграундом, детальным пониманием и практикой в области управления проектами на всех этапах жизненного цикла: от выявления требований до внедрения и эксплуатации, а также навыками формирования сплочённых команд, ориентированных на достижение общих целей.",
-      competencies: "Ключевые компетенции и инструменты:",
-      competenciesList: [
+      location: "Место жительства: Москва",
+    },
+    competencies: {
+      title: "Ключевые компетенции и инструменты",
+      list: [
         "Ведение проектов полного цикла: сбор и анализ требований, постановка задач, контроль выполнения, сдача результатов заказчику.",
         "Управление бюджетом, ресурсное планирование, оптимизация затрат.",
         "Организация и контроль выполнения проектных задач, эффективная проектная коммуникация: взаимодействие с заказчиками, презентация решений и отчетности.",
@@ -46,40 +49,6 @@ const translations = {
         "Опыт проектирования интеграций в монолитной и микросервисной архитектуре, понимание принципов клиент-серверного взаимодействия и жизненного цикла разработки ПО.",
         "Уверенное владение инструментами трекинга и планирования задач (Jira, Confluence, MS Project, Google Sheets), а также продуктами MS Office (Excel, Access, Word, Outlook, PowerPoint, Visio).",
         "Применение нотаций и инструментов описания требований Use Case, User Story, BPMN, UML, ведение диаграмм Ганта для контроля выполнения задач и соблюдения сроков релиза.",
-      ],
-      location: "Место жительства: Москва",
-    },
-    skills: {
-      title: "Навыки",
-      hard: "Hard-skills",
-      soft: "Soft-skills",
-      hardSkills: [
-        "Релизы и ITSM",
-        "Спринты/Гант",
-        "Бэклог/приоритизация",
-        "Требования/ТЗ/документы",
-        "QA и снижение дефектов",
-        "Локализация/новые рынки",
-        "Платежи/финсервисы",
-        "Интеграции/API/Swagger",
-        "Telegram mini-apps",
-        "iOS/Android",
-        "Аналитика/метрики",
-        "Пресейл/тендеры",
-        "Госзаказ/комплаенс",
-      ],
-      softSkills: [
-        "Лидерство 20+",
-        "Коммуникация бизнес-dev",
-        "Довожу до результата",
-        "Системность/процессы",
-        "Управление рисками",
-        "Переговоры/партнёрства",
-        "Клиентоориентированность",
-        "Тайм-менеджмент",
-        "Фасилитация/митинги",
-        "Мультизадачность",
-        "Стрессоустойчивость",
       ],
     },
     education: {
@@ -272,8 +241,12 @@ const translations = {
       text: "IT Project Manager with experience implementing projects of various scales, including complex government contracts and commercial products, as well as crypto wallets and online service platforms. Successfully implement solutions that increase user engagement, optimize processes, reduce errors and resolution time, and minimize release delays.",
       text2:
         "I possess both technical and managerial background, detailed understanding and practice in project management across all lifecycle stages: from requirements gathering to implementation and operations, as well as skills in building cohesive teams focused on achieving common goals.",
-      competencies: "Key Competencies and Tools:",
-      competenciesList: [
+      location: "Location: Moscow",
+      format: "Work Format: office/hybrid/remote",
+    },
+    competencies: {
+      title: "Key Competencies and Tools",
+      list: [
         "Full-cycle project management: requirements gathering and analysis, task assignment, execution control, delivery to client.",
         "Budget management, resource planning, cost optimization.",
         "Organization and control of project tasks, effective project communication: client interaction, solution presentation and reporting.",
@@ -282,41 +255,6 @@ const translations = {
         "Experience designing integrations in monolithic and microservice architectures, understanding client-server interaction principles and software development lifecycle.",
         "Proficient with task tracking and planning tools (Jira, Confluence, MS Project, Google Sheets), as well as MS Office products (Excel, Access, Word, Outlook, PowerPoint, Visio).",
         "Application of requirements description notations and tools: Use Case, User Story, BPMN, UML, maintaining Gantt charts for task execution control and release deadline compliance.",
-      ],
-      location: "Location: Moscow",
-      format: "Work Format: office/hybrid/remote",
-    },
-    skills: {
-      title: "Skills",
-      hard: "Hard Skills",
-      soft: "Soft Skills",
-      hardSkills: [
-        "Releases & ITSM",
-        "Sprints/Gantt",
-        "Backlog/Prioritization",
-        "Requirements/TOR/Docs",
-        "QA & Defect Reduction",
-        "Localization/New Markets",
-        "Payments/FinServices",
-        "Integrations/API/Swagger",
-        "Telegram mini-apps",
-        "iOS/Android",
-        "Analytics/Metrics",
-        "Presales/Tenders",
-        "Gov Contracts/Compliance",
-      ],
-      softSkills: [
-        "Leadership 20+",
-        "Business-Dev Communication",
-        "Results-Driven",
-        "Systematic/Process-Oriented",
-        "Risk Management",
-        "Negotiations/Partnerships",
-        "Client-Focused",
-        "Time Management",
-        "Facilitation/Meetings",
-        "Multitasking",
-        "Stress Resilience",
       ],
     },
     education: {
@@ -624,53 +562,26 @@ export default function ResumePage() {
             <div className="space-y-5 leading-relaxed text-muted-foreground">
               <p className="text-base">{t.about.text}</p>
               <p className="text-base">{t.about.text2}</p>
-              <p className="pt-2 font-semibold text-foreground">{t.about.competencies}</p>
-              <ul className="space-y-3">
-                {t.about.competenciesList.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                    <span className="text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
               <div className="mt-8 space-y-2 border-t border-border/50 pt-6">
                 <p className="font-semibold text-foreground">{t.about.location}</p>
-                <p className="font-semibold text-foreground">{t.about.format}</p>
+                {t.about.format && <p className="font-semibold text-foreground">{t.about.format}</p>}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Skills Section */}
+        {/* Key Competencies Section */}
         <section id="skills" className="mb-24 scroll-mt-20">
-          <h2 className="mb-8 text-4xl font-bold tracking-tight">{t.skills.title}</h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-xl border border-border/50 bg-muted/30 p-6 shadow-sm transition-shadow hover:shadow-md">
-              <h3 className="mb-5 text-xl font-semibold text-accent">{t.skills.hard}</h3>
-              <div className="flex flex-wrap gap-2">
-                {t.skills.hardSkills.map((skill, i) => (
-                  <span
-                    key={i}
-                    className="rounded-full border border-accent/50 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent transition-all hover:border-accent hover:bg-accent/20 hover:shadow-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-xl border border-border/50 bg-muted/30 p-6 shadow-sm transition-shadow hover:shadow-md">
-              <h3 className="mb-5 text-xl font-semibold text-accent">{t.skills.soft}</h3>
-              <div className="flex flex-wrap gap-2">
-                {t.skills.softSkills.map((skill, i) => (
-                  <span
-                    key={i}
-                    className="rounded-full border border-accent/50 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent transition-all hover:border-accent hover:bg-accent/20 hover:shadow-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <h2 className="mb-8 text-4xl font-bold tracking-tight">{t.competencies.title}</h2>
+          <div className="rounded-xl border border-border/50 bg-muted/30 p-8 shadow-sm transition-shadow hover:shadow-md">
+            <ul className="space-y-4 text-muted-foreground">
+              {t.competencies.list.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                  <span className="text-sm leading-relaxed text-foreground/90">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
