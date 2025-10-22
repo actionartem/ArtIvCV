@@ -185,23 +185,6 @@ const translations = {
             "Участие в релизах и управление командой разработки.",
           ],
         },
-        {
-          company: "Артсофте",
-          avatar: {
-            type: "initials",
-            text: "AS",
-          },
-          duration: "4 месяца",
-          role: "Junior Python Developer",
-          period: "Август 2016 — Ноябрь 2016 (4 месяца)",
-          intro: "Поддерживал бэкенд на Python/Django под внутренние задачи.",
-          role_desc: "Чем занимался:",
-          roleList: [
-            "Делал небольшие правки и багфиксы в бэкенде на Python/Django: views, urls, формы, админка.",
-            "Писал простые CRUD-эндпоинты и обработчики форм, добавлял валидацию.",
-            "Добавлял миграции и модели под мелкие фичи, правил SQL-запросы под задачи.",
-          ],
-        },
       ],
     },
     contact: {
@@ -389,23 +372,6 @@ const translations = {
             "Maintained document flow, created schedules, assisted manager with various tasks, participated in procurement and communicated with clients to determine their needs.",
             "Participated in preparing materials for advertising campaigns and product promotion.",
             "Participated in releases and development team management.",
-          ],
-        },
-        {
-          company: "Artsofte",
-          avatar: {
-            type: "initials",
-            text: "AS",
-          },
-          duration: "4 months",
-          role: "Junior Python Developer",
-          period: "August 2016 — November 2016 (4 months)",
-          intro: "Maintained the Python/Django backend for internal features.",
-          role_desc: "What I did:",
-          roleList: [
-            "Made small fixes and bugfixes in the Python/Django backend: views, urls, forms, admin.",
-            "Built simple CRUD endpoints and form handlers, added validation.",
-            "Created migrations and models for small features, tuned SQL queries for specific tasks.",
           ],
         },
       ],
