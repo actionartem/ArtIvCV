@@ -37,6 +37,8 @@ const translations = {
       text2:
         "Обладаю техническим и управленческим бэкграундом, детальным пониманием и практикой в области управления проектами на всех этапах жизненного цикла: от выявления требований до внедрения и эксплуатации, а также навыками формирования сплочённых команд, ориентированных на достижение общих целей.",
       location: "Место жительства: Москва",
+      birthYear: "Год рождения: 1994",
+      format: "Формат работы: офис/гибрид/удаленный",
     },
     competencies: {
       title: "Ключевые компетенции и инструменты",
@@ -121,17 +123,17 @@ const translations = {
             "Сервис цифровых услуг: онлайн-психолог, юрист, ветеринар, астрология. Витрины и личные кабинеты, мобильные приложения и Telegram mini-apps, платежи и поддержка.",
           achievements: "Что сделал:",
           achievementsList: [
-            "- Переписали сайты на новый стек и обновили дизайн/UX - приток новых клиентов вырос на 20%.",
-            "- Запустили готовый продукт на новых рынках: локализация, юр-требования, подключение платежей, организация поддержки.",
-            "- Заключил 5+ партнёрских контрактов - расширили охват и ускорили рост.",
+            "Переписали сайты на новый стек и обновили дизайн/UX - приток новых клиентов вырос на 20%.",
+            "Запустили готовый продукт на новых рынках: локализация, юр-требования, подключение платежей, организация поддержки.",
+            "Заключил 5+ партнёрских контрактов - расширили охват и ускорили рост.",
           ],
           role_desc: "Что входило в роль:",
           roleList: [
-            "- Я отвечал и за процессы/сроки, и за продуктовые решения - гипотезы, приоритизацию, UX и метрики.",
-            "- Управление портфелем проектов: 12+ сайтов, мобильные приложения, Telegram mini-apps.",
-            "- Координация команды ~10 человек (dev, дизайн, маркетинг, DevOps).",
-            "- Планирование, бюджетирование, управление рисками по всем направлениям.",
-            "- Запуски продуктов в других странах: от требований до вывода в прод.",
+            "Я отвечал и за процессы/сроки, и за продуктовые решения - гипотезы, приоритизацию, UX и метрики.",
+            "Управление портфелем проектов: 12+ сайтов, мобильные приложения, Telegram mini-apps.",
+            "Координация команды ~10 человек (dev, дизайн, маркетинг, DevOps).",
+            "Планирование, бюджетирование, управление рисками по всем направлениям.",
+            "Запуски продуктов в других странах: от требований до вывода в прод.",
           ],
           extra: "Отдельный проект под крылом компании:",
           extraText:
@@ -225,6 +227,7 @@ const translations = {
       text2:
         "I possess both technical and managerial background, detailed understanding and practice in project management across all lifecycle stages: from requirements gathering to implementation and operations, as well as skills in building cohesive teams focused on achieving common goals.",
       location: "Location: Moscow",
+      birthYear: "Year of birth: 1994",
       format: "Work Format: office/hybrid/remote",
     },
     competencies: {
@@ -310,17 +313,17 @@ const translations = {
             "Digital services platform: online psychologist, lawyer, veterinarian, astrology. Storefronts and personal accounts, mobile apps and Telegram mini-apps, payments and support.",
           achievements: "What I accomplished:",
           achievementsList: [
-            "- Rewrote websites on new stack and updated design/UX - new client influx increased by 20%.",
-            "- Launched finished product in new markets: localization, legal requirements, payment integration, support organization.",
-            "- Signed 5+ partnership contracts - expanded reach and accelerated growth.",
+            "Rewrote websites on new stack and updated design/UX - new client influx increased by 20%.",
+            "Launched finished product in new markets: localization, legal requirements, payment integration, support organization.",
+            "Signed 5+ partnership contracts - expanded reach and accelerated growth.",
           ],
           role_desc: "Role responsibilities:",
           roleList: [
-            "- Responsible for both processes/timelines and product decisions - hypotheses, prioritization, UX and metrics.",
-            "- Project portfolio management: 12+ websites, mobile apps, Telegram mini-apps.",
-            "- Coordination team ~10 people (dev, design, marketing, DevOps).",
-            "- Planning, budgeting, risk management across all directions.",
-            "- Product launches in other countries: from requirements to production.",
+            "Responsible for both processes/timelines and product decisions - hypotheses, prioritization, UX and metrics.",
+            "Project portfolio management: 12+ websites, mobile apps, Telegram mini-apps.",
+            "Coordination team ~10 people (dev, design, marketing, DevOps).",
+            "Planning, budgeting, risk management across all directions.",
+            "Product launches in other countries: from requirements to production.",
           ],
           extra: "Separate project under company umbrella:",
           extraText:
@@ -530,6 +533,7 @@ export default function ResumePage() {
               <p className="text-base">{t.about.text2}</p>
               <div className="mt-8 space-y-2 border-t border-border/50 pt-6">
                 <p className="font-semibold text-foreground">{t.about.location}</p>
+                {t.about.birthYear && <p className="font-semibold text-foreground">{t.about.birthYear}</p>}
                 {t.about.format && <p className="font-semibold text-foreground">{t.about.format}</p>}
               </div>
             </div>
