@@ -82,9 +82,9 @@ const translations = {
             src: "/experience/hp.jpg",
             alt: "Логотип HeadPoint",
           },
-          duration: "1 год и 2 месяца",
+          duration: "1 год и 3 месяца",
           role: "Руководитель IT проектов",
-          period: "Сентябрь 2024 — сейчас (1 год и 2 месяца)",
+          period: "Октябрь 2024 — сейчас (1 год и 3 месяца)",
           intro:
             "Я работаю на проекте ГИС ЕЦХД (государственная информационная система единый центр хранения и обработки данных).",
           goals: "Основные цели и задачи проекта:",
@@ -272,9 +272,9 @@ const translations = {
             src: "/experience/hp.jpg",
             alt: "HeadPoint logo",
           },
-          duration: "1 year 2 months",
+          duration: "1 year 3 months",
           role: "IT Project Manager",
-          period: "September 2024 — Present (1 year 2 months)",
+          period: "October 2024 — Present (1 year 3 months)",
           intro:
             "I work on the GIS ETSKD project (State Information System Unified Data Storage and Processing Center).",
           goals: "Main project goals and objectives:",
